@@ -24,7 +24,8 @@
       "package": "com.anonymous.myapp"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro"
+      
     }
   }
 }
