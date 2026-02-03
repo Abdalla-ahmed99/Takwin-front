@@ -44,7 +44,7 @@ export default function Onboarding({ navigation }) {
     if (currentIndex < slides.length - 1) {
       flatListRef.current.scrollToIndex({ index: currentIndex + 1 });
     } else {
-      navigation.replace('Login'); // Go to login after last slide
+      navigation.navigate('Login'); // Go to login after last slide
     }
   };
 
@@ -162,3 +162,4 @@ const styles = StyleSheet.create({
   },
 });
 import { useLanguage } from '../hooks/useLanguage';
+
