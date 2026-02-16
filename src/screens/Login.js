@@ -32,7 +32,7 @@ import { useLanguage } from "../hooks/useLanguage";
 // Mac/Linux: ifconfig or ip addr
 const getApiBaseUrl = () => {
   
-    return 'https://lastversion-production.up.railway.app';
+    return 'https://lastversion-k6ox01g1p-abdallas-projects-62d3caed.vercel.app';
   
 
 

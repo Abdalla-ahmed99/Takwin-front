@@ -4,7 +4,7 @@ import { Platform } from 'react-native';
 // API Base URL configuration
 const getApiBaseUrl = () => {
   
-    return 'https://lastversion-production.up.railway.app';
+    return 'https://lastversion-k6ox01g1p-abdallas-projects-62d3caed.vercel.app';
   
 
 
