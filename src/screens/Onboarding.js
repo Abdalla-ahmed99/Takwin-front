@@ -9,7 +9,9 @@ import {
   SafeAreaView,
   FlatList,
   Dimensions,
+  Platform,
 } from 'react-native';
+import { useLanguage } from '../hooks/useLanguage';
 
 const { width } = Dimensions.get('window');
 
@@ -42,7 +44,13 @@ export default function Onboarding({ navigation }) {
 
   const handleNext = () => {
     if (currentIndex < slides.length - 1) {
-      flatListRef.current.scrollToIndex({ index: currentIndex + 1 });
+      const nextIndex = currentIndex + 1;
+      const list = flatListRef.current;
+      if (list?.scrollToIndex) {
+        list.scrollToIndex({ index: nextIndex, animated: true });
+      } else if (Platform.OS === 'web' && list?.scrollToOffset) {
+        list.scrollToOffset({ offset: nextIndex * width, animated: true });
+      }
     } else {
       navigation.navigate('Login'); // Go to login after last slide
     }
@@ -65,6 +73,11 @@ export default function Onboarding({ navigation }) {
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
+        getItemLayout={(_, index) => ({
+          length: width,
+          offset: width * index,
+          index,
+        })}
         onMomentumScrollEnd={(event) => {
           const index = Math.round(event.nativeEvent.contentOffset.x / width);
           setCurrentIndex(index);
@@ -161,5 +174,4 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
-import { useLanguage } from '../hooks/useLanguage';
 
