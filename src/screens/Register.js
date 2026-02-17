@@ -19,7 +19,7 @@ import { useLanguage } from "../hooks/useLanguage";
 // Backend API base URL configuration
 const getApiBaseUrl = () => {
   
-    return 'https://lastversion-k6ox01g1p-abdallas-projects-62d3caed.vercel.app';
+    return 'https://lastversion-nine.vercel.app';
   
 
 
