@@ -45,6 +45,7 @@ export default function Onboarding({ navigation }) {
   const handleNext = () => {
     if (currentIndex < slides.length - 1) {
       const nextIndex = currentIndex + 1;
+           setCurrentIndex(nextIndex);
       const list = flatListRef.current;
       if (list?.scrollToIndex) {
         list.scrollToIndex({ index: nextIndex, animated: true });
@@ -174,5 +175,6 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
 });
+
 
 
